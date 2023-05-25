@@ -23,7 +23,7 @@ Sculptor :: Sculptor(int _nx, int _ny, int _nz){
             v[i][j] = new Voxel[nz];
 
             for(int k=0; k<nz; k++){
-                v[i][j][k].isOn = false;
+                v[i][j][k].show = false;
 
                 v[i][j][k].r = r;
                 v[i][j][k].g = g;
@@ -58,7 +58,7 @@ void Sculptor ::setColor(float mr, float mg, float mb, float ma){
 
 // Ativa Voxel Posição
 void Sculptor ::putVoxel(int mx, int my, int mz){
-    v[mx][my][mz].isOn = true;
+    v[mx][my][mz].show = true;
     v[mx][my][mz].r = r;
     v[mx][my][mz].g = g;
     v[mx][my][mz].b = b;
@@ -67,7 +67,7 @@ void Sculptor ::putVoxel(int mx, int my, int mz){
 
 // Desativa voxel posicão
 void Sculptor ::cutVoxel(int mx, int my, int mz){
-    v[mx][my][mz].isOn = false;
+    v[mx][my][mz].show = false;
 }
 
 // Ativa Cubo
@@ -75,7 +75,7 @@ void Sculptor ::putBox(int x0, int x1, int y0, int y1, int z0, int z1){
     for (int i = x0; i < x1; i++){
         for (int j = y0; j < y1; j++){
             for (int k = z0; k < z1; k++){
-                v[i][j][k].isOn = true;
+                v[i][j][k].show = true;
                 v[i][j][k].r = r;
                 v[i][j][k].g = g;
                 v[i][j][k].b = b;
@@ -90,7 +90,7 @@ void Sculptor ::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
     for (int i = x0; i < x1; i++){
         for (int j = y0; j < y1; j++){
             for (int k = z0; k < z1; k++){
-                v[i][j][k].isOn = false;
+                v[i][j][k].show = false;
             }
         }
     }
@@ -99,7 +99,7 @@ void Sculptor ::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
 // Ativa Esfera
 void Sculptor ::putSphere(int x, int y, int z, int r){
     double x2, y2, z2;
-    rSquared = r*r;
+    float rSquared = r*r;
 
         for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
@@ -109,7 +109,7 @@ void Sculptor ::putSphere(int x, int y, int z, int r){
                 z2 = (double)(k - z) * (double)(k - z);
 
                 if ((x2 + y2 + z2) < (rSquared)){
-                    v[i][j][k].isOn = true;
+                    v[i][j][k].show = true;
                     v[i][j][k].r = r;
                     v[i][j][k].g = g;
                     v[i][j][k].b = b;
@@ -123,7 +123,7 @@ void Sculptor ::putSphere(int x, int y, int z, int r){
 // Desativa Esfera
 void Sculptor ::cutSphere(int x_, int y_, int z_, int r_){
     double x02, y02, z02;
-    rSquared = r_ * r_;
+    float rSquared = r_ * r_;
 
     for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
@@ -133,7 +133,7 @@ void Sculptor ::cutSphere(int x_, int y_, int z_, int r_){
                 z02 = (double)(k - z_) * (double)(k - z_);
 
                 if ((x02 + y02 + z02) < rSquared){
-                    v[i][j][k].isOn = false;
+                    v[i][j][k].show = false;
                 }
             }
         }
@@ -150,7 +150,7 @@ void Sculptor ::putEllipsoid(int xc, int yc, int zc, int rx, int ry, int rz){
                 double z0 = ((double)(k - zc) * (double)(k - zc)) / (rz * rz);
 
                 if ((x0 + y0 + z0) < 1){
-                    v[i][j][k].isOn = true;
+                    v[i][j][k].show = true;
                     v[i][j][k].r = r;
                     v[i][j][k].g = g;
                     v[i][j][k].b = b;
@@ -172,7 +172,7 @@ void Sculptor ::cutEllipsoid(int cx, int cy, int cz, int rx0, int ry0, int rz0){
                 double d3 = ((double)(k - cz) * (double)(k - cz)) / (rz0 * rz0);
 
                 if ((d1 + d2 + d3) < 1){
-                    v[i][j][k].isOn = false;
+                    v[i][j][k].show = false;
                 }
             }
         }
@@ -181,7 +181,7 @@ void Sculptor ::cutEllipsoid(int cx, int cy, int cz, int rx0, int ry0, int rz0){
 
 // Criacao do arquivo .OFF
 void Sculptor ::writeOFF(const char *filename){
-    ofstream fout;
+    std::ofstream fout;
     fixed(fout);
 
     int Nvertices = 0;
@@ -191,19 +191,19 @@ void Sculptor ::writeOFF(const char *filename){
     fout.open(filename);
 
     if (fout.is_open()){
-        cout << "Arquivo salvo\n";
+        std::cout << "Arquivo salvo\n";
     }
     else{
-        cout << "Falha ao abrir aquivo\n";
+        std::cout << "Falha ao abrir aquivo\n";
         exit(1);
     }
 
-    fout << "OFF" << endl;
+    fout << "OFF" << std::endl;
 
     for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
             for (int k = 0; k < nz; k++){
-                if (v[i][j][k].isOn == true){
+                if (v[i][j][k].show == true){
                     Nvertices = Nvertices + 8;
                     Nfaces = Nfaces + 6;
                 }
@@ -211,20 +211,20 @@ void Sculptor ::writeOFF(const char *filename){
         }
     }
 
-    fout << Nvertices << " " << Nfaces << " " << 0 << endl;
+    fout << Nvertices << " " << Nfaces << " " << 0 << std::endl;
 
     for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
             for (int k = 0; k < nz; k++){
-                if (v[i][j][k].isOn == true){
-                    fout << i - 0.5 << " " << j + 0.5 << " " << k - 0.5 << endl;
-                    fout << i - 0.5 << " " << j - 0.5 << " " << k - 0.5 << endl;
-                    fout << i + 0.5 << " " << j - 0.5 << " " << k - 0.5 << endl;
-                    fout << i + 0.5 << " " << j + 0.5 << " " << k - 0.5 << endl;
-                    fout << i - 0.5 << " " << j + 0.5 << " " << k + 0.5 << endl;
-                    fout << i - 0.5 << " " << j - 0.5 << " " << k + 0.5 << endl;
-                    fout << i + 0.5 << " " << j - 0.5 << " " << k + 0.5 << endl;
-                    fout << i + 0.5 << " " << j + 0.5 << " " << k + 0.5 << endl;
+                if (v[i][j][k].show == true){
+                    fout << i - 0.5 << " " << j + 0.5 << " " << k - 0.5 << std::endl;
+                    fout << i - 0.5 << " " << j - 0.5 << " " << k - 0.5 << std::endl;
+                    fout << i + 0.5 << " " << j - 0.5 << " " << k - 0.5 << std::endl;
+                    fout << i + 0.5 << " " << j + 0.5 << " " << k - 0.5 << std::endl;
+                    fout << i - 0.5 << " " << j + 0.5 << " " << k + 0.5 << std::endl;
+                    fout << i - 0.5 << " " << j - 0.5 << " " << k + 0.5 << std::endl;
+                    fout << i + 0.5 << " " << j - 0.5 << " " << k + 0.5 << std::endl;
+                    fout << i + 0.5 << " " << j + 0.5 << " " << k + 0.5 << std::endl;
                 }
             }
         }
@@ -233,19 +233,19 @@ void Sculptor ::writeOFF(const char *filename){
     for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
             for (int k = 0; k < nz; k++){
-                if (v[i][j][k].isOn == true){
+                if (v[i][j][k].show == true){
                     fout << 4 << " " << aux + 0 << " " << aux + 3 << " " << aux + 2 << " " << aux + 1 << " " << v[i][j][k].r << " "
-                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << endl;
+                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << std::endl;
                     fout << 4 << " " << aux + 4 << " " << aux + 5 << " " << aux + 6 << " " << aux + 7 << " " << v[i][j][k].r << " "
-                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << endl;
+                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << std::endl;
                     fout << 4 << " " << aux + 0 << " " << aux + 1 << " " << aux + 5 << " " << aux + 4 << " " << v[i][j][k].r << " "
-                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << endl;
+                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << std::endl;
                     fout << 4 << " " << aux + 0 << " " << aux + 4 << " " << aux + 7 << " " << aux + 3 << " " << v[i][j][k].r << " "
-                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << endl;
+                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << std::endl;
                     fout << 4 << " " << aux + 3 << " " << aux + 7 << " " << aux + 6 << " " << aux + 2 << " " << v[i][j][k].r << " "
-                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << endl;
+                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << std::endl;
                     fout << 4 << " " << aux + 1 << " " << aux + 2 << " " << aux + 6 << " " << aux + 5 << " " << v[i][j][k].r << " "
-                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << endl;
+                         << v[i][j][k].g << " " << v[i][j][k].b << " " << v[i][j][k].a << std::endl;
                     aux = aux + 8;
                 }
             }
@@ -253,7 +253,7 @@ void Sculptor ::writeOFF(const char *filename){
     }
 
     if (fout.is_open()){
-        cout << "Arquivo.OFF salvo!" << endl;
+        std::cout << "Arquivo.OFF salvo!" << std::endl;
     }
     fout.close();
 }
