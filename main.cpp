@@ -96,6 +96,135 @@ int main()
     draw.cutSphere(30, 67, 50, 2);
     draw.cutBox(28, 33, 69, 71, 48, 53);
 
+    // cauda - inferior
+
+    draw.cutBox(52,69,50,60,11,12);
+    draw.cutBox(53,69,50,60,10,11);
+    draw.cutBox(54,69,50,60,9,10);
+    draw.cutBox(56,69,50,60,8,9);
+    draw.cutBox(58,69,50,60,7,8);
+    draw.cutBox(60,69,50,60,6,7);
+    draw.cutBox(63,69,50,60,4,6);
+    draw.putBox(65,75,50,60,1,2);
+
+    // cauda - superior
+
+    draw.cutBox(52,69,50,60,89,90);
+    draw.cutBox(53,69,50,60,90,91);
+    draw.cutBox(54,69,50,60,91,92);
+    draw.cutBox(56,69,50,60,92,93);
+    draw.cutBox(58,69,50,60,93,94);
+    draw.cutBox(60,69,50,60,94,96);
+    draw.cutBox(63,69,50,60,96,99);
+    draw.putBox(65,75,50,60,99,100);
+
+    // grade
+
+    draw.putBox(52,53,50,51,70,90);
+    draw.putVoxel(53,50,70);
+    draw.putVoxel(54,50,70);
+    draw.putVoxel(54,50,69);
+    draw.putVoxel(54,50,68);
+    draw.putVoxel(53,50,68);
+    draw.putVoxel(52,50,68);
+    draw.putVoxel(52,50,69);
+    draw.putVoxel(52,50,70);
+    draw.putVoxel(53,50,67);
+
+    draw.putBox(45,53,50,51,69,70);
+
+    draw.putBox(54,55,50,51,55,68);
+    draw.putVoxel(53,50,55);
+    draw.putVoxel(52,50,55);
+    draw.putVoxel(51,50,55);
+    draw.putVoxel(51,50,56);
+    draw.putVoxel(51,50,57);
+    draw.putVoxel(52,50,57);
+    draw.putVoxel(53,50,57);
+
+    draw.putBox(54,55,50,51,45,55);
+    draw.putVoxel(55,50,54);
+    draw.putVoxel(56,50,54);
+    draw.putVoxel(56,50,53);
+    draw.putVoxel(56,50,53);
+    draw.putVoxel(56,50,52);
+    draw.putVoxel(55,50,52);
+    
+
+
+
+    draw.putBox(54,55,50,51,30,45);
+    draw.putVoxel(50,50,45);
+    draw.putVoxel(51,50,45);
+    draw.putVoxel(52,50,45);
+    draw.putVoxel(50,50,44);
+    draw.putVoxel(50,50,43);
+    draw.putVoxel(51,50,43);
+    draw.putVoxel(52,50,43);
+    draw.putVoxel(53,50,45);
+    draw.putVoxel(53,50,43);
+
+
+    draw.putBox(52,53,50,51,11,30);
+    draw.putVoxel(54,50,29);
+    draw.putVoxel(52,50,30);
+    draw.putVoxel(52,50,31);
+    draw.putVoxel(53,50,31);
+    draw.putVoxel(53,50,29);
+
+
+    // instalações - 1
+
+    draw.putBox(38,51,50,60,13,18);
+    draw.cutBox(49,51,50,60,15,16);
+
+    draw.cutBox(38,51,50,51,15,16);
+    draw.cutBox(38,51,59,60,15,16);
+
+    draw.cutBox(50,51,50,60,16,17);
+    draw.cutBox(50,51,50,60,14,15);
+
+
+    // instalação - 2
+
+    draw.putBox(32,48,50,60,18,23);
+    draw.cutBox(46,48,50,60,20,21);
+
+    draw.cutBox(32,48,50,51,20,21);
+    draw.cutBox(32,48,59,60,20,21);
+
+    draw.cutBox(47,48,50,60,19,20);
+    draw.cutBox(47,48,50,60,21,22);
+
+    // instalação - 3
+
+    draw.putBox(26,50,50,60,23,28);
+    draw.cutBox(46,50,50,60,25,26);
+
+    draw.cutBox(26,50,50,51,25,26);
+    draw.cutBox(26,50,59,60,25,26);
+
+    draw.cutBox(49,50,50,60,26,27);
+    draw.cutBox(49,50,50,60,24,25);
+
+    // instalação - 4
+
+    draw.putBox(24,45,50,60,28,35);
+    draw.cutBox(43,45,50,60,30,33);
+
+    draw.cutBox(24,45,50,51,30,33);
+    draw.cutBox(24,45,59,60,30,33);
+
+    // instalação - 5
+
+    draw.putBox(22,40,50,60,35,40);
+    draw.cutBox(39,40,50,60,37,38);
+
+    draw.cutBox(22,40,50,51,37,38);
+    draw.cutBox(22,40,59,60,37,38);
+
+
+
     draw.writeOFF("zariman.off");
 
     return 0;
