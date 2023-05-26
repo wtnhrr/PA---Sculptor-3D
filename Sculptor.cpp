@@ -99,7 +99,7 @@ void Sculptor ::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
 // Ativa Esfera
 void Sculptor ::putSphere(int x, int y, int z, int r){
     double x2, y2, z2;
-    float rSquared = r*r;
+    int rSquared = r*r;
 
         for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
@@ -123,7 +123,7 @@ void Sculptor ::putSphere(int x, int y, int z, int r){
 // Desativa Esfera
 void Sculptor ::cutSphere(int x_, int y_, int z_, int r_){
     double x02, y02, z02;
-    float rSquared = r_ * r_;
+    int rSquared = r_ * r_;
 
     for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
