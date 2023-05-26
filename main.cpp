@@ -98,7 +98,7 @@ int main()
     draw.cutBox(28, 33, 69, 71, 48, 53);
 
     // cauda - inferior
-
+    draw.setColor(0.302, 0.302, 0.302,1.0);
     draw.cutBox(52,69,50,60,11,12);
     draw.cutBox(53,69,50,60,10,11);
     draw.cutBox(54,69,50,60,9,10);
@@ -109,7 +109,7 @@ int main()
     draw.putBox(65,75,50,60,1,2);
 
     // cauda - superior
-
+    draw.setColor(0.302, 0.302, 0.302,1.0);
     draw.cutBox(52,69,50,60,89,90);
     draw.cutBox(53,69,50,60,90,91);
     draw.cutBox(54,69,50,60,91,92);
@@ -119,8 +119,8 @@ int main()
     draw.cutBox(63,69,50,60,96,99);
     draw.putBox(65,75,50,60,99,100);
 
-    // grade
-    draw.setColor(0.113,0.109,0.133,1.0);
+    // grade - direita
+    draw.setColor(0.211, 0.266, 0.301,1);
     draw.putBox(52,53,50,51,70,90);
     draw.putVoxel(53,50,70);
     draw.putVoxel(54,50,70);
@@ -132,7 +132,21 @@ int main()
     draw.putVoxel(52,50,70);
     draw.putVoxel(53,50,67);
 
-    draw.putBox(45,53,50,51,69,70);
+    draw.putBox(30,53,50,51,70,71);
+    draw.putVoxel(40,49,70);
+    draw.putVoxel(40,48,70);
+    draw.putVoxel(40,47,70);
+    draw.putBox(21,40,47,48,70,71);
+    draw.putVoxel(21,48,70);
+    draw.putVoxel(21,49,70);
+
+    draw.putBox(36,53,50,51,68,69);
+    draw.putVoxel(40,49,68);
+    draw.putVoxel(40,48,68);
+    draw.putVoxel(40,47,68);
+    draw.putBox(35,40,47,48,68,69);
+    draw.putVoxel(35,48,68);
+    draw.putVoxel(35,49,68);
 
     draw.putBox(54,55,50,51,55,68);
     draw.putVoxel(53,50,55);
@@ -142,6 +156,17 @@ int main()
     draw.putVoxel(51,50,57);
     draw.putVoxel(52,50,57);
     draw.putVoxel(53,50,57);
+    draw.putBox(40,51,50,51,55,56);
+    draw.putVoxel(40,49,55);
+    draw.putVoxel(40,48,55);
+    draw.putVoxel(40,47,55);
+    draw.putBox(30,40,47,48,55,56);
+    draw.putVoxel(30,47,56);
+    draw.putVoxel(30,47,57);
+    draw.putVoxel(30,47,58);
+    draw.putVoxel(30,48,58);
+    draw.putVoxel(30,49,58);
+    draw.putVoxel(30,50,58);
 
     draw.putBox(54,55,50,51,45,55);
     draw.putVoxel(55,50,54);
@@ -169,10 +194,89 @@ int main()
     draw.putVoxel(53,50,31);
     draw.putVoxel(53,50,29);
 
+    // grade - esquerda
+    draw.setColor(0.211, 0.266, 0.301,1);
+    draw.putBox(52,53,59,60,70,90);
+    draw.putVoxel(53,59,70);
+    draw.putVoxel(54,59,70);
+    draw.putVoxel(54,59,69);
+    draw.putVoxel(54,59,68);
+    draw.putVoxel(53,59,68);
+    draw.putVoxel(52,59,68);
+    draw.putVoxel(52,59,69);
+    draw.putVoxel(52,59,70);
+    draw.putVoxel(53,59,67);
+
+    draw.putBox(30,53,59,60,70,71);
+    draw.putVoxel(40,60,70);
+    draw.putVoxel(40,61,70);
+    draw.putVoxel(40,62,70);
+    draw.putBox(21,40,62,63,70,71);
+    draw.putVoxel(21,61,70);
+    draw.putVoxel(21,60,70);
+
+    draw.putBox(36,53,59,60,68,69);
+    draw.putVoxel(40,60,68);
+    draw.putVoxel(40,61,68);
+    draw.putVoxel(40,62,68);
+    draw.putBox(35,40,62,63,68,69);
+    draw.putVoxel(35,61,68);
+    draw.putVoxel(35,60,68);
+
+
+    draw.putBox(54,55,59,60,55,68);
+    draw.putVoxel(53,59,55);
+    draw.putVoxel(52,59,55);
+    draw.putVoxel(51,59,55);
+    draw.putVoxel(51,59,56);
+    draw.putVoxel(51,59,57);
+    draw.putVoxel(52,59,57);
+    draw.putVoxel(53,59,57);
+    draw.putBox(40,51,59,60,55,56);
+    draw.putVoxel(40,60,55);
+    draw.putVoxel(40,61,55);
+    draw.putVoxel(40,62,55);
+    draw.putBox(30,40,62,63,55,56);
+    draw.putVoxel(30,62,56);
+    draw.putVoxel(30,62,57);
+    draw.putVoxel(30,62,58);
+    draw.putVoxel(30,61,58);
+    draw.putVoxel(30,60,58);
+    draw.putVoxel(30,59,58);
+
+    draw.putBox(54,55,59,60,45,55);
+    draw.putVoxel(55,59,54);
+    draw.putVoxel(56,59,54);
+    draw.putVoxel(56,59,53);
+    draw.putVoxel(56,59,53);
+    draw.putVoxel(56,59,52);
+    draw.putVoxel(55,59,52);
+
+    draw.putBox(54,55,59,60,30,45);
+    draw.putVoxel(50,59,45);
+    draw.putVoxel(51,59,45);
+    draw.putVoxel(52,59,45);
+    draw.putVoxel(50,59,44);
+    draw.putVoxel(50,59,43);
+    draw.putVoxel(51,59,43);
+    draw.putVoxel(52,59,43);
+    draw.putVoxel(53,59,45);
+    draw.putVoxel(53,59,43);
+
+    draw.putBox(52,53,59,60,11,30);
+    draw.putVoxel(54,59,29);
+    draw.putVoxel(52,59,30);
+    draw.putVoxel(52,59,31);
+    draw.putVoxel(53,59,31);
+    draw.putVoxel(53,59,29);
+
     // instalações - 1
     draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(38,51,50,60,13,18);
     draw.cutBox(49,51,50,60,15,16);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(38,49,50,60,15,16);
 
     draw.cutBox(38,51,50,51,15,16);
     draw.cutBox(38,51,59,60,15,16);
@@ -182,8 +286,12 @@ int main()
 
 
     // instalação - 2
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(32,48,50,60,18,23);
     draw.cutBox(46,48,50,60,20,21);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(32,46,50,60,20,21);
 
     draw.cutBox(32,48,50,51,20,21);
     draw.cutBox(32,48,59,60,20,21);
@@ -192,8 +300,12 @@ int main()
     draw.cutBox(47,48,50,60,21,22);
 
     // instalação - 3
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(26,50,50,60,23,28);
     draw.cutBox(46,50,50,60,25,26);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(26,50,50,60,25,26);
 
     draw.cutBox(26,50,50,51,25,26);
     draw.cutBox(26,50,59,60,25,26);
@@ -202,8 +314,12 @@ int main()
     draw.cutBox(49,50,50,60,24,25);
 
     // instalação - 4
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(24,45,50,60,28,35);
     draw.cutBox(43,45,50,60,30,33);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(24,43,50,60,30,33);
 
     draw.cutBox(24,45,50,51,30,33);
     draw.cutBox(24,45,59,60,30,33);
@@ -212,8 +328,12 @@ int main()
     draw.cutBox(44,45,50,60,29,30);
 
     // instalação - 5
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(22,40,50,60,35,40);
     draw.cutBox(38,40,50,60,37,38);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(22,38,50,60,37,38);
 
     draw.cutBox(22,40,50,51,37,38);
     draw.cutBox(22,40,59,60,37,38);
@@ -222,8 +342,12 @@ int main()
     draw.cutBox(39,40,50,60,36,37);
 
     // instalação - 6
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(22,40,50,60,40,45);
     draw.cutBox(38,40,50,60,42,43);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(22,38,50,60,42,43);
 
     draw.cutBox(22,40,50,51,42,43);
     draw.cutBox(22,40,59,60,42,43);
@@ -232,8 +356,12 @@ int main()
     draw.cutBox(39,40,50,60,41,42);
 
     // instalação - 7
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(22,40,50,60,58,67);
     draw.cutBox(38,40,50,60,60,65);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(22,38,50,60,60,65);
 
     draw.cutBox(22,40,50,51,60,65);
     draw.cutBox(22,40,59,60,60,65);
@@ -242,8 +370,12 @@ int main()
     draw.cutBox(39,40,50,60,59,60);
 
     // instalação - 8
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(21,40,50,60,67,72);
     draw.cutBox(38,40,50,60,69,70);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(21,38,50,60,69,70);
 
     draw.cutBox(21,40,50,51,69,70);
     draw.cutBox(21,40,59,60,69,70);
@@ -252,8 +384,12 @@ int main()
     draw.cutBox(39,40,50,60,68,69);
 
     // instalação - 9
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(28,42,50,60,72,77);
     draw.cutBox(40,42,50,60,74,75);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(28,40,50,60,74,75);
 
     draw.cutBox(28,42,50,51,74,75);
     draw.cutBox(28,42,59,60,74,75);
@@ -262,8 +398,12 @@ int main()
     draw.cutBox(41,42,50,60,73,74);
 
     // instalação - 10
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(32,50,50,60,77,82);
     draw.cutBox(48,50,50,60,79,80);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(31,48,50,60,79,80);
 
     draw.cutBox(32,50,50,51,79,80);
     draw.cutBox(32,50,59,60,79,80);
@@ -272,8 +412,12 @@ int main()
     draw.cutBox(49,50,50,60,78,79);
 
     // instalação - 11
+    draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(38,46,50,60,82,87);
     draw.cutBox(44,46,50,60,84,85);
+
+    draw.setColor(0.086, 0.031, 0.050,1.0); 
+    draw.putBox(38,44,50,60,84,85);
 
     draw.cutBox(38,46,50,51,84,85);
     draw.cutBox(38,46,59,60,84,85);

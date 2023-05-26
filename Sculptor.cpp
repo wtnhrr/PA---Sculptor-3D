@@ -101,7 +101,7 @@ void Sculptor ::putSphere(int x, int y, int z, int r){
     double x2, y2, z2;
     int rSquared = r*r;
 
-        for (int i = 0; i < nx; i++){
+    for (int i = 0; i < nx; i++){
         for (int j = 0; j < ny; j++){
             for (int k = 0; k < nz; k++){
                 x2 = (double)(i - x) * (double)(i - x);
@@ -110,10 +110,10 @@ void Sculptor ::putSphere(int x, int y, int z, int r){
 
                 if ((x2 + y2 + z2) < (rSquared)){
                     v[i][j][k].show = true;
-                    v[i][j][k].r = r;
-                    v[i][j][k].g = g;
-                    v[i][j][k].b = b;
-                    v[i][j][k].a = a;
+                    v[i][j][k].r = this->r;
+                    v[i][j][k].g = this->g;
+                    v[i][j][k].b = this->b;
+                    v[i][j][k].a = this->a;
                 }
             }
         }
