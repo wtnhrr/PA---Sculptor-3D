@@ -5,29 +5,64 @@
 
 int main()
 {
-
+    /**
+     * @brief Cria um objeto Sculptor com as dimensões especificadas.
+     * @code
+     * Sculptor draw(100, 100, 100);
+     * @endcode */
     Sculptor draw(100, 100, 100);
 
-    //main
+
+    /**
+     * @brief Corpo principal da nave formando um meio-anel.
+     * @code
+     * draw.setColor(0.302, 0.302, 0.302,1.0);
+     * draw.putSphere(60, 50, 50, 50);
+     * draw.cutBox(0, 100, 0, 50, 0, 100);
+     * draw.cutBox(0, 100, 60, 100, 0, 100);
+     * draw.cutBox(69, 100, 50, 60, 0, 100);
+     * draw.cutSphere(60, 50, 50, 40);
+     * @endcode */
     draw.setColor(0.302, 0.302, 0.302,1.0);
     draw.putSphere(60, 50, 50, 50);
-    
     draw.cutBox(0, 100, 0, 50, 0, 100);
     draw.cutBox(0, 100, 60, 100, 0, 100);
     draw.cutBox(69, 100, 50, 60, 0, 100);
     draw.cutSphere(60, 50, 50, 40);
 
-    // esfera central | cortes central
+    /**
+     * @brief Esfera central no corpo principal da nave.
+     * @code
+     * draw.setColor(0.058,0.054,0.074,1.0);
+     * draw.putSphere(20, 55, 50, 8);
+     * draw.cutBox(17,36,62,63,40,60);
+     * draw.cutBox(10,12,50,60,40,60);
+     * draw.cutBox(10,14,50,60,40,60);
+     * draw.cutBox(10,15,50,60,41,59);
+     * draw.cutBox(10,16,45,65,43,57);
+     * @endcode */
     draw.setColor(0.058,0.054,0.074,1.0);
     draw.putSphere(20, 55, 50, 8);
-
     draw.cutBox(17,36,62,63,40,60);
     draw.cutBox(10,12,50,60,40,60);
     draw.cutBox(10,14,50,60,40,60);
     draw.cutBox(10,15,50,60,41,59);
     draw.cutBox(10,16,45,65,43,57);
 
-    // central | 4 pilares | 2 aneis
+    /**
+     * @brief Na esfera central, 2 aneis e 4 pilares.
+     * @code
+     * draw.setColor(0.058,0.054,0.074, 1.0);
+     * draw.putSphere(15, 55, 50, 7);
+     * draw.cutSphere(15, 55, 50, 5);
+     * draw.cutBox(15, 16, 45, 65, 43, 57);
+     * draw.cutBox(13, 14, 45, 65, 43, 57);
+     * draw.cutBox(5, 12, 45, 65, 43, 57);
+     * draw.putBox(5, 20, 60, 61, 46, 47);
+     * draw.putBox(5, 20, 60, 61, 54, 55);
+     * draw.putBox(5, 20, 50, 51, 54, 55);
+     * draw.putBox(5, 20, 50, 51, 46, 47);
+     * @endcode */
     draw.setColor(0.058,0.054,0.074, 1.0);
     draw.putSphere(15, 55, 50, 7);
     draw.cutSphere(15, 55, 50, 5);
@@ -39,30 +74,56 @@ int main()
     draw.putBox(5, 20, 50, 51, 54, 55);
     draw.putBox(5, 20, 50, 51, 46, 47);
 
-    // asa direita
+    /**
+     * @brief Asa direita (próximo de y=0)
+     * @code
+     * draw.setColor(0.231,0.298,0.360, 1.0);
+     * draw.putEllipsoid(30,42,50,20,5,6);
+     * draw.cutEllipsoid(30,42,50,6,6,6);
+     * draw.cutBox(5, 50, 38, 47, 50, 51);
+     * draw.putBox(25, 35, 40, 45, 45, 47);
+     * draw.putBox(25, 35, 40, 45, 54, 56);
+     * draw.cutBox(29, 32, 40, 45, 54, 55);
+     * draw.cutBox(29, 32, 40, 45, 46, 47);
+     * draw.putBox(50, 58, 41, 44, 49, 50);
+     * draw.putBox(49, 52, 41, 44, 48, 49);
+     * draw.putBox(50, 58, 41, 44, 51, 52);
+     * draw.putBox(49, 52, 41, 44, 52, 53);
+     * @endcode */
     draw.setColor(0.231,0.298,0.360, 1.0);
     draw.putEllipsoid(30,42,50,20,5,6);
     draw.cutEllipsoid(30,42,50,6,6,6);
-
     draw.cutBox(5, 50, 38, 47, 50, 51);
-
     draw.putBox(25, 35, 40, 45, 45, 47);
     draw.putBox(25, 35, 40, 45, 54, 56);
     draw.cutBox(29, 32, 40, 45, 54, 55);
     draw.cutBox(29, 32, 40, 45, 46, 47);
-    
     draw.putBox(50, 58, 41, 44, 49, 50);
     draw.putBox(49, 52, 41, 44, 48, 49);
     draw.putBox(50, 58, 41, 44, 51, 52);
     draw.putBox(49, 52, 41, 44, 52, 53);
 
-    // asas direita -3 pinos
+    /**
+     * @brief Asa direita, 3 pinos no centro.
+     * @code
+     * draw.setColor(0.541,0.549,0.6 ,1.0);
+     * draw.putBox(25, 26, 34, 48, 50, 51);
+     * draw.putBox(32, 33, 34, 48, 53, 54);
+     * draw.putBox(32, 33, 34, 48, 47, 48);
+     * @endcode */
     draw.setColor(0.541,0.549,0.6 ,1.0);
     draw.putBox(25, 26, 34, 48, 50, 51);
     draw.putBox(32, 33, 34, 48, 53, 54);
     draw.putBox(32, 33, 34, 48, 47, 48);
 
-    // asas direita - centro-centro
+    /**
+     * @brief Asa direita, esfera no centro da asa.
+     * @code
+     * draw.setColor(0.168,0.164,0.219,1.0);
+     * draw.putSphere(30, 42, 50, 4);
+     * draw.cutSphere(30, 42, 50, 2);
+     * draw.cutBox(28, 33, 39, 41, 48, 53);
+     * @endcode */
     draw.setColor(0.168,0.164,0.219,1.0);
     draw.putSphere(30, 42, 50, 4);
     draw.cutSphere(30, 42, 50, 2);
@@ -97,7 +158,19 @@ int main()
     draw.cutSphere(30, 67, 50, 2);
     draw.cutBox(28, 33, 69, 71, 48, 53);
 
-    // cauda - inferior
+    /**
+     * @brief Alongamento da cauda inferior.
+     * @code
+     * draw.setColor(0.302, 0.302, 0.302,1.0);
+     * draw.cutBox(52,69,50,60,11,12);
+     * draw.cutBox(53,69,50,60,10,11);
+     * draw.cutBox(54,69,50,60,9,10);
+     * draw.cutBox(56,69,50,60,8,9);
+     * draw.cutBox(58,69,50,60,7,8);
+     * draw.cutBox(60,69,50,60,6,7);
+     * draw.cutBox(63,69,50,60,4,6);
+     * draw.putBox(65,75,50,60,1,2);
+     * @endcode */
     draw.setColor(0.302, 0.302, 0.302,1.0);
     draw.cutBox(52,69,50,60,11,12);
     draw.cutBox(53,69,50,60,10,11);
@@ -119,7 +192,23 @@ int main()
     draw.cutBox(63,69,50,60,96,99);
     draw.putBox(65,75,50,60,99,100);
 
-    // grade - direita
+
+    /**
+     * @brief Grade da direita (próximo de y=0)
+     * @code
+     * draw.setColor(0.211, 0.266, 0.301,1);
+     * draw.putBox(52,53,50,51,70,90);
+     * draw.putVoxel(53,50,70);
+     * draw.putVoxel(54,50,70);
+     * draw.putVoxel(54,50,69);
+     * draw.putVoxel(54,50,68);
+     * draw.putVoxel(53,50,68);
+     * draw.putVoxel(52,50,68);
+     * draw.putVoxel(52,50,69);
+     * draw.putVoxel(52,50,70);
+     * draw.putVoxel(53,50,67);
+     * ...
+     * @endcode */
     draw.setColor(0.211, 0.266, 0.301,1);
     draw.putBox(52,53,50,51,70,90);
     draw.putVoxel(53,50,70);
@@ -270,6 +359,19 @@ int main()
     draw.putVoxel(53,59,31);
     draw.putVoxel(53,59,29);
 
+    /**
+     * @brief Instalações de no total de 1 a 11.
+     * @code
+     * draw.setColor(0.318,0.325,0.353,1.0); 
+     * draw.putBox(38,51,50,60,13,18);
+     * draw.cutBox(49,51,50,60,15,16);
+     * draw.setColor(0.086, 0.031, 0.050,1.0); 
+     * draw.putBox(38,49,50,60,15,16);
+     * draw.cutBox(38,51,50,51,15,16);
+     * draw.cutBox(38,51,59,60,15,16);
+     * draw.cutBox(50,51,50,60,16,17);
+     * draw.cutBox(50,51,50,60,14,15);
+     * @endcode */
     // instalações - 1
     draw.setColor(0.318,0.325,0.353,1.0); 
     draw.putBox(38,51,50,60,13,18);
@@ -425,6 +527,11 @@ int main()
     draw.cutBox(45,46,50,60,85,86);
     draw.cutBox(45,46,50,60,83,84);
 
+    /**
+     * @brief Salvar modelo em .OFF.
+     * @code
+     * draw.writeOFF("zariman.off");
+     * @endcode */
 
     draw.writeOFF("zariman.off");
 
